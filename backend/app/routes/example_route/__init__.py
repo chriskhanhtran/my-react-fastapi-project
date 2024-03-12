@@ -1,6 +1,5 @@
 from asgiref.sync import sync_to_async
-from fastapi import APIRouter, Request
-from pydantic import BaseModel
+from fastapi import APIRouter
 
 from ...utils.server import handle_exceptions
 
@@ -9,11 +8,11 @@ router = APIRouter(
 )
 
 
-def _get_data():
-    return {}
+def _get_example_data():
+    return {"message": "Hello World!"}
 
 
 @router.get("/data")
 @handle_exceptions
-async def get_data():
-    return await sync_to_async(_get_data)()
+async def get_example_data():
+    return await sync_to_async(_get_example_data)()
