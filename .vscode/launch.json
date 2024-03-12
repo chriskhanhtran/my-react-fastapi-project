@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "FastAPI Server",
+      "type": "debugpy",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "cwd": "${workspaceFolder}/backend",
+      "program": "debug.py"
+    }
+  ]
+}
