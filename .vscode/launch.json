@@ -1,13 +1,38 @@
 {
+  "compounds": [
+    {
+      "name": "Backend + Frontend + Chrome",
+      "configurations": ["Backend", "Frontend", "Chrome"]
+    }
+  ],
   "configurations": [
     {
-      "name": "FastAPI Server",
+      "name": "Backend",
       "type": "debugpy",
       "request": "launch",
-      "console": "integratedTerminal",
-      "justMyCode": false,
+      "program": "debug.py",
       "cwd": "${workspaceFolder}/backend",
-      "program": "debug.py"
+      "python": "${workspaceFolder}/venv/bin/python3",
+      "justMyCode": false
+    },
+    {
+      "name": "Frontend",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"]
+    },
+    {
+      "name": "Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend",
+      "port": 3000,
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${webRoot}/*"
+      }
     }
   ]
 }
